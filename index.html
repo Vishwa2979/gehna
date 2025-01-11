@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gehna Jewelry - Premium Handcrafted Jewelry for Every Occasion">
+    <title>Gehna Jewelry</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #2c3e50;
+        }
+
+        /* Header */
+        header {
+            background-color: red; /* Vibrant coral */
+            color: rgb(255, 255, 255);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo h1 {
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('e:\jwellerey\silver cuff.jpg') no-repeat center center/cover;
+            text-align: center;
+            padding: 100px 20px;
+            color: rgb(23, 4, 4);
+        }
+
+        .cta-button {
+            background-color: #ff4500;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 30px;
+        }
+
+        .cta-button:hover {
+            background-color: #e83c00;
+        }
+
+        /* Product Grid Section */
+        .products {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            color: #ff6347;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .product-card .price {
+            font-size: 16px;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+        }
+
+        .product-card button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Checkout & Payment Forms */
+        .checkout-form, .payment form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-form input, .payment form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+
+        .checkout-form button, .payment form button {
+            background-color: #ff6347;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 30px;
+            border: none;
+        }
+
+        .checkout-form button:hover, .payment form button:hover {
+            background-color: #e83c00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Section Hidden by Default */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">
+        <h1>Gehna</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="javascript:void(0);" onclick="showSection('home')">Home</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('products')">Products</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('checkout')">Checkout</a></li>
+            <li><a href="javascript:void(0);" onclick="showSection('payment')">Payment</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Home Section -->
+<section id="home" class="hero">
+    <h2>Welcome to Gehna Jewelry</h2>
+    <p>Explore a collection of beautiful handcrafted jewelry.</p>
+    <a href="javascript:void(0);" class="cta-button" onclick="showSection('products')">Shop Now</a>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="hidden products">
+    <h2>Our Jewelry Collection</h2>
+    <div class="product-grid">
+        <!-- 20 Product Cards -->
+        <div class="product-card" data-id="1" data-name="Gold Diamond Ring" data-price="50000">
+            <img src="e:\jwellerey\gold diamond ring.jpg" alt="Gold Diamond Ring">
+            <h3>Gold Diamond Ring</h3>
+            <p>Elegant gold ring with a diamond centerpiece.</p>
+            <p class="price">₹50,000</p>
+            <button onclick="addToCart(1, 'Gold Diamond Ring', 50000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="2" data-name="Silver Necklace" data-price="15000">
+            <img src="e:\jwellerey\silver necklace.jpg" alt="Silver Necklace">
+            <h3>Silver Necklace</h3>
+            <p>Modern silver necklace for all occasions.</p>
+            <p class="price">₹15,000</p>
+            <button onclick="addToCart(2, 'Silver Necklace', 15000)">Add to Cart</button>
+        </div>
+        
+        <div class="product-card" data-id="3" data-name="Gold Earrings" data-price="25000">
+            <img src="e:\jwellerey\gold earring.jpg" alt="Gold Earrings">
+            <h3>Gold Earrings</h3>
+            <p>Beautiful gold earrings for every event.</p>
+            <p class="price">₹25,000</p>
+            <button onclick="addToCart(3, 'Gold Earrings', 25000)">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="4" data-name="Diamond Bracelet" data-price="75000">
+            <img src="e:\jwellerey\diamond bracelet.jpg" alt="Diamond Bracelet">
+            <h3>Diamond Bracelet</h3>
+            <p>Stunning diamond bracelet for special occasions.</p>
+            <p class="price">₹75,000</p>
+            <button onclick="addToCart(4, 'Diamond Bracelet', 75000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="5" data-name="Platinum Ring" data-price="60000">
+            <img src="e:\jwellerey\platium ring.jpg" alt="Platinum Ring">
+            <h3>Platinum Ring</h3>
+            <p>Elegant platinum ring with intricate design.</p>
+            <p class="price">₹60,000</p>
+            <button onclick="addToCart(5, 'Platinum Ring', 60000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="6" data-name="Emerald Necklace" data-price="40000">
+            <img src="e:\jwellerey\emerald neck.jpg" alt="Emerald Necklace">
+            <h3>Emerald Necklace</h3>
+            <p>Exquisite emerald necklace for elegant wear.</p>
+            <p class="price">₹40,000</p>
+            <button onclick="addToCart(6, 'Emerald Necklace', 40000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="7" data-name="Ruby Ring" data-price="30000">
+            <img src="e:\jwellerey\ruby ring.jpg" alt="Ruby Ring">
+            <h3>Ruby Ring</h3>
+            <p>Stunning ruby ring for a bold look.</p>
+            <p class="price">₹30,000</p>
+            <button onclick="addToCart(7, 'Ruby Ring', 30000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="8" data-name="Silver Bracelet" data-price="10000">
+            <img src="e:\jwellerey\silver bracelet.jpg" alt="Silver Bracelet">
+            <h3>Silver Bracelet</h3>
+            <p>Simple and elegant silver bracelet.</p>
+            <p class="price">₹10,000</p>
+            <button onclick="addToCart(8, 'Silver Bracelet', 10000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="9" data-name="Golden Watch" data-price="80000">
+            <img src="e:\jwellerey\gold watch.jpg" alt="Gold Watch">
+            <h3>Gold Watch</h3>
+            <p>Luxury gold watch with timeless appeal.</p>
+            <p class="price">₹80,000</p>
+            <button onclick="addToCart(9, 'Gold Earrings', 80000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="10" data-name="Diamond Pendant" data-price="55000">
+            <img src="e:\jwellerey\diamond pendant.jpg" alt="Diamond Pendant">
+            <h3>Diamond Pendant</h3>
+            <p>Sparkling diamond pendant perfect for any event.</p>
+            <p class="price">₹55,000</p>
+            <button onclick="addToCart(10, 'Diamond Pendant', 55000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="11" data-name="Sapphire Earrings" data-price="35000">
+            <img src="e:\jwellerey\saphire earrings.jpg" alt="Sapphire Earrings">
+            <h3>Sapphire Earrings</h3>
+            <p>Elegant sapphire earrings for evening wear.</p>
+            <p class="price">₹35,000</p>
+            <button onclick="addToCart(11, 'Sapphire Earrings', 35000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="12" data-name="Gold Bracelet" data-price="22000">
+            <img src="e:\jwellerey\gold bracelet.jpg" alt="Gold Bracelet">
+            <h3>Gold Bracelet</h3>
+            <p>Classic gold bracelet to match any outfit.</p>
+            <p class="price">₹22,000</p>
+            <button onclick="addToCart(12, 'Gold Bracelet', 22000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="13" data-name="Platinum Earrings" data-price="45000">
+            <img src="e:\jwellerey\platium earrings.jpg" alt="Platinum Earrings">
+            <h3>Platinum Earrings</h3>
+            <p>Stylish platinum earrings for a sophisticated look.</p>
+            <p class="price">₹45,000</p>
+            <button onclick="addToCart(13, 'Gold Earrings', 45000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="14" data-name="Gold Chain" data-price="28000">
+            <img src="e:\jwellerey\gold chain.jpg" alt="Gold Chain">
+            <h3>Gold Chain</h3>
+            <p>Beautiful gold chain perfect for layering.</p>
+            <p class="price">₹28,000</p>
+            <button onclick="addToCart(14, 'Gold Chain', 28000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="15" data-name="Amethyst Ring" data-price="20000">
+            <img src="e:\jwellerey\amethyst ring.jpg" alt="Amethyst Ring">
+            <h3>Amethyst Ring</h3>
+            <p>Vibrant amethyst ring for a pop of color.</p>
+            <p class="price">₹20,000</p>
+            <button onclick="addToCart(3, 'Amethyst Ring', 20000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="16" data-name="Diamond Tiara" data-price="100000">
+            <img src="e:\jwellerey\diamond tiara.jpg" alt="Diamond Tiara">
+            <h3>Diamond Tiara</h3>
+            <p>Luxurious diamond tiara for special events.</p>
+            <p class="price">₹100,000</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="17" data-name="Pearl Necklace" data-price="12000">
+            <img src="e:\jwellerey\pear necklace.jpg" alt="Pearl Necklace">
+            <h3>Pearl Necklace</h3>
+            <p>Classic pearl necklace for formal wear.</p>
+            <p class="price">₹12,000</p>
+            <button onclick="addToCart(17, 'Pearl Necklace', 12000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="18" data-name="Silver Ring" data-price="5000">
+            <img src="e:\jwellerey\silver ring.jpg" alt="Silver Ring">
+            <h3>Silver Ring</h3>
+            <p>Sleek silver ring for daily wear.</p>
+            <p class="price">₹5,000</p>
+            <button onclick="addToCart(18, 'Silver Ring', 5000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="19" data-name="Gold Cufflinks" data-price="18000">
+            <img src="e:\jwellerey\gold cuff.jpg" alt="Gold Cufflinks">
+            <h3>Gold Cufflinks</h3>
+            <p>Stylish gold cufflinks for a formal look.</p>
+            <p class="price">₹18,000</p>
+            <button onclick="addToCart(19, 'Gold Cufflinks', 18000)">Add to Cart</button>
+        </div>
+        <div class="product-card" data-id="20" data-name="Silver Cufflinks" data-price="8000">
+            <img src="e:\jwellerey\silver cuff.jpg" alt="Gold Cufflinks">
+            <h3>Silver Cufflinks</h3>
+            <p>Stylish silver cufflinks for a formal look.</p>
+            <p class="price">₹8,000</p>
+            <button onclick="addToCart(20, 'Silver Cufflinks', 8000)">Add to Cart</button>
+        </div>
+
+
+        <!-- Continue adding the rest of the products -->
+    </div>
+</section>
+
+<!-- Checkout Section -->
+<section id="checkout" class="hidden checkout">
+    <h2>Your Cart</h2>
+    <div id="checkout-items">
+        <!-- Checkout items will appear here after adding to cart -->
+    </div>
+    <div class="total">
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+    </div>
+    <div class="checkout-form">
+        <h3>Billing Information</h3>
+        <form action="javascript:void(0);" method="POST">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Shipping Address" required>
+            <input type="text" placeholder="City" required>
+            <button type="submit" onclick="showSection('payment')">Proceed to Payment</button>
+        </form>
+    </div>
+</section>
+
+<!-- Payment Section -->
+<section id="payment" class="hidden payment">
+    <h2>Payment Information</h2>
+    <form action="javascript:void(0);">
+        <input type="text" placeholder="Card Number" required>
+        <input type="text" placeholder="Cardholder Name" required>
+        <input type="month" placeholder="Expiry Date" required>
+        <input type="text" placeholder="CVV" required>
+        <button type="submit">Pay</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Gehna Jewelry. All rights reserved.</p>
+</footer>
+
+<script>
+    // Store the cart
+    let cart = [];
+    let totalPrice = 0;
+
+    // Function to show specific section and hide others
+    function showSection(section) {
+        // Hide all sections
+        document.querySelectorAll('section').forEach((sec) => {
+            sec.classList.add('hidden');
+        });
+        
+        // Show the selected section
+        document.getElementById(section).classList.remove('hidden');
+    }
+
+    // Function to add item to cart
+    function addToCart(id, name, price) {
+        cart.push({id, name, price});
+        totalPrice += price;
+        updateCart();
+    }
+
+    // Update the checkout section with cart items
+    function updateCart() {
+        let checkoutItems = document.getElementById("checkout-items");
+        checkoutItems.innerHTML = ''; // Clear current items
+        
+        cart.forEach(item => {
+            let cartItem = document.createElement("div");
+            cartItem.innerHTML = `<p>${item.name} - ₹${item.price}</p>`;
+            checkoutItems.appendChild(cartItem);
+        });
+
+        document.getElementById("total-price").innerText = totalPrice;
+    }
+</script>
+
+</body>
+</html>
